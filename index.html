@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #00eeff, #40f2ff);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #32ffff;
+    }
+
+    .container {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      border-left: 5px solid #1ef8ff;
+      padding-left: 1rem;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    a.card {
+      display: block;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+      text-decoration: none;  /* リンクっぽさを消す */
+      color: inherit;         /* 親要素の色を継承 */
+    }
+    a.card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 1rem;
+    }
+    .card-content h3 {
+      margin-bottom: 0.5rem;
+      color: #2dbabe;
+    }
+    .card-content p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #eee;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    .socials a {
+      color: #30b4a9;
+      margin: 0 0.5rem;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    .socials a:hover {
+      color: #333;
+    }
+
+    .skills, .awards {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .skills h2, .awards h2 {
+      font-size: 2em;
+      margin-bottom: 1em;
+      text-align: center;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 0.5em;
+    }
+
+    .skill-category, .award-category {
+      margin-bottom: 2em;
+    }
+
+    .skill-category h3, .award-category h3 {
+      font-size: 1.4em;
+      margin-bottom: 1em;
+      color: #444;
+    }
+
+    .skill-category ul, .award-category ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .skill-category li {
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 12px 20px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+
+    .skill-category li:hover {
+      background: #f0f0f0;
+    }
+
+    .skill-name {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .skill-desc {
+      color: #777;
+      font-size: 0.95em;
+    }
+
+    /* --- Awards の見た目ちょい変え --- */
+    .award-category ul li {
+      background: #fffef8;
+      border-left: 5px solid #00ffbf;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+      font-weight: 500;
+      color: #444;
+    }
+
+
+    @media (max-width: 500px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kei Sano</h1>
+    <p>AI Engineering / Game Development</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Works</a>
+    <a href="#skills">Skills</a>
+    <a href="#awards">Awards</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <div class="container">
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p>東北大学大学院工学研究科1年。2025年3月に東北大学工学部を卒業し、現在は深層学習を用いた計算創薬にまつわる研究をしています。
+        趣味でゲーム製作をしており、主にUnity, C#を用いたゲームプログラミングに携わっています。研究の他、個人的に使うツール開発にPythonを使用しています。</p>
+    </section>
+
+    <section id="projects" style="margin-top:3rem;">
+      <h2 class="section-title">Works</h2>
+      <div class="projects">
+        <div class="card">
+          <img src="https://source.unsplash.com/random/800x600?code" alt="Project Image">
+          <div class="card-content">
+            <h3>Portfolio Website</h3>
+            <p>html&cssにより2025年4月作成。現在も随時更新中。</p>
+          </div>
+        </div>
+        <a href="https://unityroom.com/games/imvaderz" class="card" target="_blank">
+          <img src="https://source.unsplash.com/random/800x600?app" alt="Project Image">
+          <div class="card-content">
+            <h3>Imvaderz</h3>
+            <p>複素数平面を舞台にした新感覚シューティング。2025年4月Unityroomゲームジャム「Unity1week」に投稿。</p>
+          </div>
+        </a>
+        <div class="card">
+          <img src="https://source.unsplash.com/random/800x600?design" alt="Project Image">
+          <div class="card-content">
+            <h3>30-30 (仮題)</h3>
+            <p>四則演算で戦う弾幕シューティング。2025年8月α版公開を目標に製作中。</p>
+          </div>
+        </div>
+        <a href="https://micomprocedure.com/works/21a" class="card" target="_blank">
+          <img src="https://source.unsplash.com/random/800x600?app" alt="Project Image">
+          <div class="card-content">
+            <h3>THE Unexpected Fighting Operation</h3>
+            <p>墜落した惑星からの脱出を目指すハクスラ2Dアクション。東北大学ゲーム製作サークル「Micomprocedure」の新入生プロジェクトとしてチーム開発(プログラマーを担当)し、2021年11月に同大学学祭に出展。</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section id="skills" style="margin-top:3rem;">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills">
+      
+        <div class="skill-category">
+          <h3>Programming Languages</h3>
+          <ul>
+            <li>
+              <span class="skill-name">Python</span>
+              <span class="skill-desc">研究:深層学習</span>
+            </li>
+            <li>
+              <span class="skill-name">C#</span>
+              <span class="skill-desc">ゲーム制作</span>
+            </li>
+            <li>
+              <span class="skill-name">HTML & CSS</span>
+              <span class="skill-desc">ポートフォリオデザイン</span>
+            </li>
+            <li>
+              <span class="skill-name">C</span>
+              <span class="skill-desc">大学で扱いました</span>
+            </li>
+            <li>
+              <span class="skill-name">Fortran</span>
+              <span class="skill-desc">研究:科学技術計算</span>
+            </li>
+          </ul>
+        </div>
+      
+        <div class="skill-category">
+          <h3>Tools</h3>
+          <ul>
+            <li>
+              <span class="skill-name">VS Code</span>
+              <span class="skill-desc">普段の開発に使用</span>
+            </li>
+            <li>
+              <span class="skill-name">Visual Studio 2022</span>
+              <span class="skill-desc">ゲーム製作に使用</span>
+            </li>
+            <li>
+              <span class="skill-name">Unity</span>
+              <span class="skill-desc">ゲーム制作</span>
+            </li>
+            <li>
+              <span class="skill-name">Linux</span>
+              <span class="skill-desc">研究用環境、ツール開発環境</span>
+            </li>
+            <li>
+              <span class="skill-name">Amber</span>
+              <span class="skill-desc">MD(Molecular Dynamics Simulation), 3D-RISM</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" style="margin-top:3rem;">
+      <h2 class="section-title">Awards</h2>
+      <div class="award-category">
+        <h3>学内表彰</h3>
+        <ul>
+          <li>東北大学総長賞 (2025/03)</li>
+          <li>卒業研究発表会優秀発表賞; 発表題目:「深層学習を用いたタンパク質-小分子界面における水和分布予測」 (2025/03)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:3rem;">
+      <h2 class="section-title">Contact</h2>
+      <p>研究に関するご質問やゲーム製作に関する依頼、コラボレーションについて、お気軽にご連絡ください。<br>Mail: sano.kei.s1@dc.tohoku.ac.jp</p>
+      <div class="socials" style="margin-top:1rem;">
+        <a href="https://x.com/mathmarock"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://github.com/KeiSano24"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    © 2025 Kei Sano - All rights reserved.
+  </footer>
+
+</body>
+</html>
