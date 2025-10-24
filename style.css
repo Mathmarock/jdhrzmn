@@ -191,7 +191,6 @@ footer {
     color: #444;
 }
 
-/* ===== モーダル関連 ===== */
 .modal {
   display: none;
   position: fixed;
@@ -217,7 +216,7 @@ footer {
 }
 
 .modal-content video {
-  width: 100%;
+  width: 50%;
   height: auto;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
@@ -243,4 +242,5 @@ footer {
     gap: 1rem;
     }
 }
+
 
